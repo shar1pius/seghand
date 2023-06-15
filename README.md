@@ -9,7 +9,7 @@ pip install e .
 
 - Let's first download inference video. Update its path on pred_twohands_video.sh
 
-- Predict hands and (1st order) interacting objects.
+- Predict hands segmentation masks.
 ```bash
 cd mmsegmentation
 bash pred_twohands_video.sh
