@@ -1,9 +1,9 @@
 # Hand Segmentation
 
 ## Setup
-create conda env using env.yml
-cd mmsegmentation
-pip install e .
+create conda env using env.yml  
+cd mmsegmentation  
+pip install e .  
 
 ## Inference on Videos
 
