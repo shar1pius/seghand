@@ -15,6 +15,8 @@ cd mmsegmentation
 bash pred_twohands_video.sh
 ```
 
+Check LOG.md for more information.
+
 References:
 **Fine-Grained Egocentric Hand-Object Segmentation: Dataset, Model, and Applications**\
 *European Conference on Computer Vision (ECCV), 2022*\
