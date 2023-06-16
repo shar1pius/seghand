@@ -2,14 +2,15 @@
 
 ## Setup
 create conda env using env.yml
-cd mmsegmentation
-pip install e .
+(install mmcv with cuda, if conda env doesn't.)    
+cd mmsegmentation  
+pip install e .  
 
 ## Inference on Videos
 
-- Let's first download inference video. Update its path on pred_twohands_video.sh
-
-- Predict hands and (1st order) interacting objects.
+- First download inference video or any video. Update its path on `pred_twohands_video.sh`.
+- Download the checkpoints, using `download_checkpoints`.
+- Predict hands segments in the video.
 ```bash
 cd mmsegmentation
 bash pred_twohands_video.sh
