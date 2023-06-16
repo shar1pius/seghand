@@ -3,12 +3,12 @@
     on the task (allhands, twohands, handobj1, etc.)
 """
 from PIL import Image
-import numpy as np
+import numpy as np 
 import glob
 import pdb
 import os
 from skimage.io import imsave
-from tqdm import tqdm
+from tqdm import tqdm 
 
 
 
@@ -32,17 +32,17 @@ def cvt_lbl(src_lbl_dir, dst_lbl_dir, mode):
             lbl_out[lbl_out > 2] = 0
         elif mode == 'handobj1':
             lbl_out = lbl.copy()
-            lbl_out[lbl_out > 5] = 0
+            lbl_out[lbl_out > 5] = 0      
         elif mode == 'obj1':
             lbl_out = lbl.copy()
-            lbl_out[lbl_out > 5] = 0
+            lbl_out[lbl_out > 5] = 0      
             lbl_out[lbl_out == 1] = 0
             lbl_out[lbl_out == 2] = 0
             lbl_out[lbl_out == 3] = 1
             lbl_out[lbl_out == 4] = 2
             lbl_out[lbl_out == 5] = 3
         elif mode == 'obj2':
-            lbl_out = lbl.copy()
+            lbl_out = lbl.copy()   
             lbl_out[lbl_out == 1] = 0
             lbl_out[lbl_out == 2] = 0
             lbl_out[lbl_out == 3] = 1
@@ -54,12 +54,12 @@ def cvt_lbl(src_lbl_dir, dst_lbl_dir, mode):
         elif mode == 'foreground':
             lbl_out = lbl.copy()
             lbl_out[lbl_out > 0] = 1
-
+            
             # print(np.unique(lbl_out))
             # pdb.set_trace()
 
             # lbl_out[lbl_out == 3] = 1
-            # lbl_out[lbl_out == 4] = 2
+            # lbl_out[lbl_out == 4] = 2            
 
         imsave(os.path.join(dst_lbl_dir, fname), lbl_out)
 
@@ -67,11 +67,11 @@ def cvt_lbl(src_lbl_dir, dst_lbl_dir, mode):
 
 if __name__ == '__main__':
 
-    lbl_type_list = ['train', 'val', 'test_indomain', 'test_outdomain']
-    # lbl_type_list = ['train']
-
+    # lbl_type_list = ['train', 'val', 'test_indomain', 'test_outdomain']
+    lbl_type_list = ['train']
+    
     for lbl_type in lbl_type_list:
-
+        
         lbl_dir = '../data/'+lbl_type+'/label_ccda'
 
         lbl_twohands_dir = '../data/'+lbl_type+'/label_twohands_ccda'
@@ -88,10 +88,10 @@ if __name__ == '__main__':
 
         lbl_allhands_dir = '../data/'+lbl_type+'/label_allhands_ccda'
         cvt_lbl(lbl_dir, lbl_allhands_dir, 'allhands')
-
+        
         # lbl_handobj1_dir = '../data/'+lbl_type+'/label_foreground'
         # cvt_lbl(lbl_dir, lbl_handobj1_dir, 'foreground')
 
 
-
+        
 
